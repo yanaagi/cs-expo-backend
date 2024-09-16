@@ -35,11 +35,8 @@ const GallerySlider: React.FC<GallerySliderProps> = ({
       direction: 'ltr',
       mediaQuery: 'max',
       breakpoints: {
-        425: {
-          width:210
-        },
         640: {
-          perPage:1
+          perPage  : 1,
         }
       },
     };
@@ -134,23 +131,23 @@ const GallerySlider: React.FC<GallerySliderProps> = ({
     },[]);
 
   return (
-    <div className="flex flex-row items-center justify-center w-full h-full">
-      <div id="splide" className="splide flex flex-col h-11/12 items-center justify-center">
+    <div className="relative flex flex-col items-center justify-center w-full">
+      <div id="splide" className="splide flex flex-col items-center justify-center w-full">
         <div className="flex flex-row items-center pb-10">
-          <div id="slideup" className=" s-full h-[30px] w-[30px]">
+          <div id="slideup" className=" h-[30px] w-[30px] max-[540px]:hidden">
             <button className={`flex items-top justify-center text-coral-pink cursor-pointer text-3xl font-bold ${isMaxSlideLeft && "invisible"}`}>
               <AiOutlineLeft/>
             </button>
           </div>
 
-          <div className="splide__track">
+          <div className="splide__track max-[475px]:w-[300px] max-[365px]:w-[200px]">
             <ul className="splide__list">
               {
                 slides.map((slide, index)=>(
                   <li key={index} className="splide__slide flex items-center">
                     <div className="relative flex flex-col items-center py-10">
-                      <div id="slide-card" className="splide__slide__container bg-slate-600 flex justify-center">
-                        <img src={slide[0]}></img>
+                      <div id="slide-card"  className="">
+                        <img src={slide[0]} className=""></img>
                       </div>
                       <div className="absolute flex items-center -bottom-1 justify-center text-md font-bold text-coral-pink px-3">
                         {slide[1]}
@@ -162,14 +159,14 @@ const GallerySlider: React.FC<GallerySliderProps> = ({
             </ul> 
           </div>
 
-          <div id="slidedown" className="h-[30px] w-[30px]">
+          <div id="slidedown" className="h-[30px] w-[30px] max-[540px]:hidden">
             <button className={`flex items-top justify-center text-coral-pink cursor-pointer text-3xl font-bold ${isMaxSlideRight && "invisible"}`}>
                 <AiOutlineRight/>
             </button>
           </div>
         </div>
 
-        <div className="flex w-full pt-10">
+        <div className="flex w-full pt-5">
           <ul className="splide__pagination custompagination flex items-center justify-center">
           </ul>
         </div>

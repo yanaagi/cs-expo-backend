@@ -23,7 +23,8 @@ const Page: React.FC<GroupProps> = ({params}) => {
         category={groupData?.category} 
         posterFilePath={groupData?.posterFilePath} 
         AVPLink={groupData?.AVPLink} 
-        groupPicturesCount={groupData?.groupPicturesCount}     
+        groupPicturesCount={groupData?.groupPicturesCount}
+        groupPicDir={groupData?.groupPicDir}     
       />
     </main>
   );
